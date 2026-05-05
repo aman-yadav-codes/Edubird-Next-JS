@@ -11,8 +11,6 @@ export async function Providers({ children }: ProviderProps) {
 	const cookieStore = await cookies();
 
 	const sidebarState = cookieStore.get("sidebar:state")?.value;
-	//* get sidebar width from cookie
-	const sidebarWidth = cookieStore.get("sidebar:width")?.value;
 
 	let defaultOpen = true;
 
@@ -21,7 +19,7 @@ export async function Providers({ children }: ProviderProps) {
 	}
 
 	return (
-		<SidebarProvider defaultOpen={defaultOpen} defaultWidth={sidebarWidth}>
+		<SidebarProvider defaultOpen={defaultOpen}>
 			<AppSidebar>
 				<AppSidebarInset>{children}</AppSidebarInset>
 			</AppSidebar>
