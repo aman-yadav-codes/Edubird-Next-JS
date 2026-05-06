@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     // ✅ store refresh token in cookie
     response.cookies.set("refresh_token", sessionId, {
       httpOnly: true,
-      secure: false, // change to true in production
+      secure: process.env.NODE_ENV === "production",
       path: "/",
     });
 

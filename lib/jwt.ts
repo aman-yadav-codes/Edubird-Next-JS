@@ -1,8 +1,7 @@
 // /lib/jwt.ts
 import jwt from "jsonwebtoken";
 
-const SECRET = "secret";
-
+const SECRET = process.env.JWT_SECRET || "secret";
 
 export const verifyToken = (token: string): any => {
   return jwt.verify(token, SECRET);
